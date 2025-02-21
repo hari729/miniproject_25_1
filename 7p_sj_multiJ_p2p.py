@@ -1,7 +1,7 @@
 import numpy as np
 import math
 import matplotlib.pyplot as plt
-#import pinocchio as pin
+import pinocchio as pin
 
 plt.close('all')
 
