@@ -1,6 +1,14 @@
 <?xml version ="1.0"?>
 <robot name ="2r_planar">
-    <link name ="fixed">
+    <material name="blue">
+        <color rgba="0 0 0.8 1"/>
+    </material>
+
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+
+    <link name ="base_link">
         <visual>
             <geometry>
                 <box size="0.1 0.1 0.1"/>
@@ -11,8 +19,9 @@
         <visual>
             <origin xyz="0 0 0"/>
             <geometry>
-                <cylinder length="1" radius="0.1"/>
+                <cylinder length="1" radius="0.05"/>
             </geometry>
+            <material name="blue"/>
         </visual>
         <inertial>
             <mass value="12.456"/>
@@ -23,8 +32,9 @@
         <visual>
             <origin xyz="0 0 0"/>
             <geometry>
-                <cylinder length="1" radius="0.1"/>
+                <cylinder length="1" radius="0.01"/>
             </geometry>
+        <material name="blue"/>
         </visual>
         <inertial>
             <mass value="12.456"/>
@@ -34,15 +44,15 @@
 
     <joint name="joint_1" type="revolute">
         <axis xyz="0 0 1"/>
-        <origin rpy="0 0 0"  xyz="0 0 0.05"/>
+        <origin rpy="0 0 0"  xyz="0 0 0.1"/>
         <limit effort="1000.0" lower="0.0" upper="3.14" velocity="0.5"/>
-        <parent link="fixed"/>
+        <parent link="base_link"/>
         <child link="link_1"/>
     </joint> 
 
     <joint name="joint_2" type="revolute">
         <axis xyz="0 -1 0"/>
-        <origin rpy="0 0 0"  xyz="0 0 0"/>
+        <origin rpy="0 0 0"  xyz="0 0 0.1"/>
         <limit effort="1000.0" lower="0.0" upper="3.14" velocity="0.5"/>
         <parent link="link_1"/>
         <child link="link_2"/>
