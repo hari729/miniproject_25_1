@@ -1,0 +1,55 @@
+<?xml version ="1.0"?>
+<robot name ="first">
+    <material name="blue">
+        <color rgba="0 0 0.8 1"/>
+    </material>
+
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+
+    <link name ="base_link">
+        <visual>
+            <geometry>
+                <cylinder length="0.1" radius="0.2"/>
+            </geometry>
+        <material name="blue"/>
+        </visual>
+    </link>
+
+    <link name ="link_1">
+        <visual>
+            <origin xyz="0 0 0.05"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.2"/>
+            </geometry>
+        <material name="blue"/>
+        </visual>
+    </link>
+
+    <link name ="link_2">
+        <visual>
+            <origin xyz="0.3 0 0"/>
+            <geometry>
+                <box size="0.6 0.1 0.2"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="joint_1" type="revolute">
+        <axis xyz="0 0 1"/>
+        <origin rpy="0 0 0"  xyz="0 0 0.05"/>
+        <limit effort="1000.0" lower="0.0" upper="3.14" velocity="0.5"/>
+        <parent link="base_link"/>
+        <child link="link_1"/>
+    </joint> 
+
+    <joint name="joint_2" type="revolute">
+        <axis xyz="0 -1 0"/>
+        <origin rpy="0 0 0"  xyz="0 0.25 0.05"/>
+        <limit effort="1000.0" lower="0.0" upper="3.14" velocity="0.5"/>
+        <parent link="link_1"/>
+        <child link="link_2"/>
+    </joint>    
+
+</robot>
